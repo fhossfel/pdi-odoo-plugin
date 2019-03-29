@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  This software is free software: you can redistribute it and/or modify
+  it under the terms of the GNU Lesser General Public License as published
+  by the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This software is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser General Public License for more details.
+
+  You should have received a copy of the GNU Lesser General Public License
+  along with this software. If not, see <http://www.gnu.org/licenses/>.
+
+  Copyright 2017 West IT Solutions
+-->
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration
+  xmlns:log4j="http://jakarta.apache.org/log4j/"
+  debug="false">
+  <appender
+    name="PENTAHOCONSOLE"
+    class="org.apache.log4j.ConsoleAppender">
+    <param
+      name="Target"
+      value="System.out" />
+
+    <layout class="org.apache.log4j.PatternLayout">
+      <!-- The default pattern: Date Priority [Category] Message\n -->
+      <param
+        name="ConversionPattern"
+        value="%d{ABSOLUTE} %-5p [%c{1}] %m%n" />
+    </layout>
+  </appender>
+
+  <root>
+    <priority value="INFO" />
+    <appender-ref ref="PENTAHOCONSOLE" />
+  </root>
+</log4j:configuration>
