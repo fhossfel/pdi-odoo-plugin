@@ -27,16 +27,19 @@ import org.pentaho.di.core.database.DatabaseFactoryInterface;
 import org.pentaho.di.core.database.DatabaseMeta;
 import org.pentaho.di.core.row.ValueMetaInterface;
 
-import com.debortoliwines.odoo.api.FilterCollection;
-import com.debortoliwines.odoo.api.ObjectAdapter;
-import com.debortoliwines.odoo.api.OdooCommand;
-import com.debortoliwines.odoo.api.OdooApiException;
-import com.debortoliwines.odoo.api.Session;
-import com.debortoliwines.odoo.api.Field;
-import com.debortoliwines.odoo.api.FieldCollection;
-import com.debortoliwines.odoo.api.RowCollection;
-import com.debortoliwines.odoo.api.Field.FieldType;
-import com.debortoliwines.odoo.api.OdooXmlRpcProxy.RPCProtocol;
+import com.odoojava.api.FilterCollection;
+import com.odoojava.api.ObjectAdapter;
+import com.odoojava.api.OdooCommand;
+import com.odoojava.api.OdooApiException;
+import com.odoojava.api.Session;
+import com.odoojava.api.Field;
+import com.odoojava.api.FieldCollection;
+import com.odoojava.api.RowCollection;
+import com.odoojava.api.Field.FieldType;
+import com.odoojava.api.OdooXmlRpcProxy.RPCProtocol;
+import org.pentaho.di.core.Const;
+import org.pentaho.di.core.database.DatabaseTestResults;
+import org.pentaho.di.core.exception.KettleDatabaseException;
 
 /**
  * Helper class to keep common functionality in one class
@@ -76,6 +79,28 @@ public class OdooHelper implements DatabaseFactoryInterface {
             databaseMeta.environmentSubstitute( databaseMeta.getDatabaseName() ), databaseMeta.environmentSubstitute(
             databaseMeta.getUsername() ), databaseMeta.environmentSubstitute( databaseMeta.getPassword() ) );
   }
+
+  public DatabaseTestResults getConnectionTestResults(DatabaseMeta databaseMeta) throws KettleDatabaseException {
+
+      DatabaseTestResults result = new DatabaseTestResults();
+
+      try {
+
+        odooConnection.startSession();
+        result.setMessage(String.format("Connection to Odoo server [%s] sucessfully established. %s", databaseMeta.getName(), Const.CR));
+        result.setSuccess(true);
+
+      } catch (Exception e) {
+
+        result.setMessage(String.format("Unable to connect to the Odoo [%s] server: %s%s", databaseMeta.getName(), e.getMessage(), Const.CR));
+        result.setSuccess(false);
+
+      }
+
+      return result;
+
+   }
+
 
   public void StartSession() throws Exception {
     odooConnection.startSession();
@@ -269,4 +294,5 @@ public class OdooHelper implements DatabaseFactoryInterface {
     return mappings;
 
   }
+
 }

@@ -28,7 +28,7 @@ import org.pentaho.di.odoo.core.OdooHelper;
 import org.pentaho.di.trans.step.BaseStepData;
 import org.pentaho.di.trans.step.StepDataInterface;
 
-import com.debortoliwines.odoo.api.RowCollection;
+import com.odoojava.api.RowCollection;
 
 public class OdooObjectOutputData extends BaseStepData implements StepDataInterface {
 

@@ -33,12 +33,12 @@ import org.pentaho.di.trans.step.StepInterface;
 import org.pentaho.di.trans.step.StepMeta;
 import org.pentaho.di.trans.step.StepMetaInterface;
 
-import com.debortoliwines.odoo.api.FieldCollection;
-import com.debortoliwines.odoo.api.FilterCollection;
-import com.debortoliwines.odoo.api.ObjectAdapter;
-import com.debortoliwines.odoo.api.OdooApiException;
-import com.debortoliwines.odoo.api.Row;
-import com.debortoliwines.odoo.api.RowCollection;
+import com.odoojava.api.FieldCollection;
+import com.odoojava.api.FilterCollection;
+import com.odoojava.api.ObjectAdapter;
+import com.odoojava.api.OdooApiException;
+import com.odoojava.api.Row;
+import com.odoojava.api.RowCollection;
 
 public class OdooObjectOutput extends BaseStep implements StepInterface {
   private OdooObjectOutputMeta meta;

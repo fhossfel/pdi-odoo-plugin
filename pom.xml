@@ -41,11 +41,11 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <dependency.pentaho-metadata.revision>7.0.0.0-25</dependency.pentaho-metadata.revision>
-    <dependency.kettle.revision>7.0.0.0-25</dependency.kettle.revision>
+    <dependency.pentaho-metadata.revision>8.2.0.4-518</dependency.pentaho-metadata.revision>
+    <dependency.kettle.revision>8.2.0.4-579</dependency.kettle.revision>
     <mockito.version>1.10.19</mockito.version>
     <junit.version>4.12</junit.version>
-    <odoo-java-api.version>2.0.1</odoo-java-api.version>
+    <odoo-java-api.version>3.0.1</odoo-java-api.version>
   </properties>
 
   <dependencyManagement>
@@ -59,7 +59,7 @@
   </dependencyManagement>
   <dependencies>
     <dependency>
-      <groupId>pentaho</groupId>
+      <groupId>org.pentaho</groupId>
       <artifactId>pentaho-metadata</artifactId>
       <version>${dependency.pentaho-metadata.revision}</version>
       <scope>provided</scope>
@@ -82,12 +82,12 @@
       <version>${dependency.kettle.revision}</version>
       <scope>provided</scope>
     </dependency>
-    <dependency>
+    <!--dependency>
       <groupId>pentaho-kettle</groupId>
       <artifactId>kettle-engine-test</artifactId>
       <version>${dependency.kettle.revision}</version>
       <scope>test</scope>
-    </dependency>
+    </dependency-->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -102,7 +102,7 @@
     </dependency>
 
     <dependency>
-      <groupId>com.debortoliwines</groupId>
+      <groupId>com.odoojava</groupId>
       <artifactId>odoo-java-api</artifactId>
       <version>${odoo-java-api.version}</version>
     </dependency>
@@ -172,7 +172,7 @@
       <snapshots>
         <enabled>false</enabled>
       </snapshots>
-      <url>http://repository.pentaho.org/artifactory/repo/</url>
+      <url>https://nexus.pentaho.org/content/groups/omni</url>
     </repository>
   </repositories>
 </project>

@@ -63,7 +63,7 @@ import org.pentaho.di.ui.core.widget.TableView;
 import org.pentaho.di.ui.trans.dialog.TransPreviewProgressDialog;
 import org.pentaho.di.ui.trans.step.BaseStepDialog;
 
-import com.debortoliwines.odoo.api.helpers.FilterHelper;
+import com.odoojava.api.helpers.FilterHelper;
 
 public class OdooObjectInputDialog extends BaseStepDialog implements StepDialogInterface {
 
