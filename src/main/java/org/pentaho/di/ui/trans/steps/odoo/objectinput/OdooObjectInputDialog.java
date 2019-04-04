@@ -485,6 +485,7 @@ public class OdooObjectInputDialog extends BaseStepDialog implements StepDialogI
           data = new OdooObjectInputData( dbMeta );
           data.helper.StartSession();
           modelList = data.helper.getModelList();
+          Arrays.sort(modelList , String.CASE_INSENSITIVE_ORDER );
         } catch ( Exception e ) {
           return null;
         }
